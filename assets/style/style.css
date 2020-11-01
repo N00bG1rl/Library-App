@@ -2,12 +2,15 @@
 
 body,
 html {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
   /* background-color: ; */
   margin: 0;
   padding: 0;
+  overflow: hidden;
+}
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
 }
 body, input, button {
   font-family: 'Montserrat', sans-serif;;
@@ -22,30 +25,24 @@ body, input, button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 1;
 }
 .header .logo {
   width: 80px;
   height: auto;
 }
-.side-input .close-btn-wrapper,
-.header .add-btn-wrapper {
+.header .openBtnWrapper {
   display: flex;
   align-items: center;
 }
-.side-input .close-btn-wrapper {
-  justify-content: flex-end;
-}
-.side-input .close-btn-wrapper span,
-.header .add-btn-wrapper span {
+.header .openBtnWrapper span {
   padding: 10px;
   font-size: 15px;
 }
-.side-input .close-btn-wrapper button,
-.header button {
+.header .openBtn {
   width: 50px;
   height: 50px;
   background-color: green;
@@ -57,11 +54,7 @@ body, input, button {
   cursor: pointer;
   position: relative;
 }
-.side-input .close-btn-wrapper button {
-  background-color: red;
-}
-.side-input .close-btn-wrapper button svg,
-.header button svg {
+.header .openBtn svg {
   width: 25px;
   height: 25px;
   position: absolute;
@@ -69,19 +62,35 @@ body, input, button {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.side-input .close-btn-wrapper button svg path,
-.header button svg path {
+.header .openBtn svg path {
   fill: #fff;
 }
+.header .openBtnActive.openBtn {
+  animation: openBtnActive .5s ease-in-out forwards;
+}
+@keyframes openBtnActive {
+  0% {
+    background-color: red;
+    transform: rotate(225deg);
+  }
+  100% {
+    background-color: greean;
+    transform: rotate(0deg);
+  }
+}
 
-.container {
+.content {
+  width: 100%;
+  height: 100%;
   font-size: 0; /* For whitespace */
   text-align: center;
-  padding: 15px;
+}
+.contentWrapper {
+  margin: 25px;
 }
 .read,
 .not-read {
-  width: 380px;
+  width: 320px;
   height: 100%;
   min-height: 200px;
   display: block;
@@ -91,29 +100,75 @@ body, input, button {
 .not-read {
   border-bottom: 1px solid #666;
 }
-.not-read {
-  margin-top: 200px;
-}
 
-.side-input {
-  width: 0;
-  height: 100%;
+
+.overlay {
   position: fixed;
-  z-index: 6;
+  display: none;
+  width: 100%;
+  height: 100%;
   top: 0;
+  left: 0;
   right: 0;
-  background-color: seashell;
-  overflow-x: hidden;
+  bottom: 0;
+  background-color: rgb(255, 255, 255, .9);
+  z-index: 2;
+  cursor: pointer;
   transition: .5s;
 }
-.side-input .close-btn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-right: 50px;
+.overlay .closeBtnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 60px;
 }
-.side-input input {
+.overlay .closeBtnWrapper .closeBtn {
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  border-radius: 25px;
+  border: none;
+  box-shadow: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+.overlay .closeBtnWrapper .closeBtn svg {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.overlay .closeBtnWrapper .closeBtn svg path {
+  fill: #fff;
+}
+.overlay .closeBtnWrapper .closeBtnActive.closeBtn {
+  animation: closeBtnActive .5s ease-in-out forwards;
+}
+@keyframes closeBtnActive {
+  0% {
+    background-color: green;
+    transform: rotate(0deg);
+  }
+  100% {
+    background-color: red;
+    transform: rotate(225deg);
+  }
+}
+
+
+.inputWrapper {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  color:white;
+  text-align:center;
+}
+.overlay input {
   width: 100%;
   height: 50px;
   font-size: 15px;
@@ -127,26 +182,28 @@ body, input, button {
   margin-bottom: 30px;
   appearance: none;
 }
-.side-input input::-webkit-input-placeholder {
+.overlay input::-webkit-input-placeholder {
   color: rgba(255,255,255, 0.75);
 }
-.side-input input:-moz-input-placeholder {
+.overlay input:-moz-input-placeholder {
   color: rgba(255,255,255, 0.75);
 }
-.side-input input::-moz-input-placeholder {
+.overlay input::-moz-input-placeholder {
   color: rgba(255,255,255, 0.75);
 }
-.side-input input:-ms-input-placeholder {
+.overlay input:-ms-input-placeholder {
   color: rgba(255,255,255, 0.75);
 }
 
-.content {
-/*   margin: 100px auto;
-  display: block; */
-  transition: margin-right .5s;
-}
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-
+  .read, .not-read {
+    display: inline-block;
+  }
+  .not-read {
+    border-right: 1px solid #666;
+    border-bottom: none;
+  }
 }

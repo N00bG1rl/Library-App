@@ -1,18 +1,16 @@
-console.log('Hello world!')
+let openBtn = document.getElementById("openBtn");
+let closeBtn = document.getElementById("closeBtn");
+let overlay = document.getElementById("overlay")
 
-//Example from: https://www.w3schools.com/howto/howto_js_toggle_class.asp
-var element = document.getElementById("myDIV");
+openBtn.onclick = function() {
+  overlay.style.display = "block";
 
-if (element.classList) {
-  element.classList.toggle("mystyle");
-} else {
-  // For IE9
-  var classes = element.className.split(" ");
-  var i = classes.indexOf("mystyle");
+  closeBtn.classList.add("closeBtnActive");
+  openBtn.classList.remove("openBtnActive");
+}
+closeBtn.onclick = function() {
+  overlay.style.display = "none";
 
-  if (i >= 0)
-    classes.splice(i, 1);
-  else
-    classes.push("mystyle");
-    element.className = classes.join(" ");
+  openBtn.classList.add("openBtnActive");
+  closeBtn.classList.remove("closeBtnActive")
 }
