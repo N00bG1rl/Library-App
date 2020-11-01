@@ -2,6 +2,7 @@
 
 body,
 html {
+  min-width: 400px;
   /* background-color: ; */
   margin: 0;
   padding: 0;
