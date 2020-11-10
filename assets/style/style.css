@@ -159,7 +159,7 @@ body, input, button {
 }
 
 .inputWrapper {
-  width: 500px;
+  width: 400px;
   height: 350px;
   position:absolute;
   top:50%;
@@ -170,14 +170,14 @@ body, input, button {
 .inputWrapper div {
   width: 100%;
   position: relative;
-  margin: 50px 0;
+  margin: 20px 0;
 }
 .inputWrapper div label {
   width: 100%;
   position: absolute;
   top: 0;
-  margin: 15px;
-  padding: 10px;
+  margin: 15px;/* 15 */
+  padding: 10px;/* 10 */
   font-size: 15px;
   font-weight: 400;
   color: #000;
@@ -196,7 +196,7 @@ body, input, button {
 }
 .inputWrapper input[type="text"] {
   width: 100%;
-  padding: 20px;
+  padding: 20px;/* 20 */
   border: 1px solid green;
   font-size: 20px;
   background-color: white;

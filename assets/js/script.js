@@ -1,3 +1,4 @@
+/* Overlay appearance */
 let openBtn = document.getElementById("openBtn");
 let closeBtn = document.getElementById("closeBtn");
 let overlay = document.getElementById("overlay")
@@ -13,7 +14,7 @@ closeBtn.onclick = function() {
   closeBtn.classList.remove("closeBtnActive")
 }
 
-
+/* Input field label animation */
 $('input').on('focusin', function() {
   $(this).parent().find('label').addClass('active');
 });
