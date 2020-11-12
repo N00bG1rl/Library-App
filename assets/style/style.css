@@ -100,28 +100,6 @@ body, input, button {
   }
 }
 
-.content {
-  width: 100%;
-  height: 100%;
-  font-size: 0; /* For whitespace */
-  text-align: center;
-}
-.contentWrapper {
-  margin: 25px;
-}
-.read,
-.not-read {
-  width: 320px;
-  height: 100%;
-  min-height: 200px;
-  display: block;
-  margin: 0 auto;
-  font-size: 20px;
-}
-.not-read {
-  border-bottom: 1px solid #666;
-}
-
 .overlay {
   position: fixed;
   display: none;
@@ -249,6 +227,63 @@ input[type="text"]:focus {
 }
 
 
+.content {
+  width: 100%;
+  height: 100%;
+  font-size: 0; /* For whitespace */
+}
+.contentWrapper {
+  margin: 25px auto;
+  overflow: auto;
+/*   width: 650px; */
+  max-width: 1080px;
+  min-width: 650px;
+}
+.contentWrapper div {
+  float: left;
+}
+.content h1 {
+  font-size: 20px;
+  color: #333;
+  padding: 20px;
+}
+.content ul li {
+  padding: 20px;
+}
+.read,
+.notRead {
+  width: 320px;
+  height: 100%;
+  min-height: 200px;
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
+}
+.notRead {
+  border-bottom: 1px solid #666;
+}
+
+.book {
+  font-size: 0; /* For whitespace */
+}
+.book h3 {
+  font-size: 17px;
+  line-height: 20px;
+}
+.book h5 {
+  font-size: 13px;
+  padding: 5px 0 5px 0;
+}
+.book span {
+  font-size: 13px;
+  color: #666;
+  padding: 5px 0 5px 0;
+}
+.book span strong {
+  font-weight: 600;
+}
+
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .header {
@@ -301,10 +336,10 @@ input[type="text"]:focus {
   .overlay button {
     font-size: 15px;
   }
-  .read, .not-read {
+  .read, .notRead {
     display: inline-block;
   }
-  .not-read {
+  .notRead {
     border-right: 1px solid #666;
     border-bottom: none;
   }
