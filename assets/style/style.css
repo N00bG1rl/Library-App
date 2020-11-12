@@ -24,7 +24,7 @@ body, input, button {
   height: 50px;
   margin: 0 auto;
   /* background-color: ; */
-  box-shadow: 5px 10px 18px #666666;
+  box-shadow: 1px 1px 6px #666666;
   border-bottom: 1px solid #666;
   display: flex;
   justify-content: space-between;
