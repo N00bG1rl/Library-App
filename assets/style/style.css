@@ -247,12 +247,113 @@ input[type="text"]:focus {
   color: #333;
   padding: 20px;
 }
-.content ul li {
+.content ul {
+  /* width: 100%; */
+  float: left;
   padding: 20px;
 }
+.content ul li {
+  width: 100%;
+  min-height: 70px;
+  float: left;
+  font-size: 15px;
+  font-weight: 500;
+  color: #444;
+  line-height: 22px;
+  /* background-color: ; */
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(44,62,80, .10);
+ /*  padding: 0 100px 0 0; */
+  padding: 24px 0 24px 0;
+  margin: 0 0 10px 0;
+  position: relative;
+}
+.content ul li:last-of-type {
+  margin: 0;
+}
+.content .bookBtns {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.content .bookBtns button {
+  width: 50px;
+  height: 50px;
+  float: left;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+}
+.content .bookBtns button:last-of-type::before {
+  content: " ";
+  width: 1px;
+  height: 50px;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  background-color: darkgray;
+}
+.content .bookBtns button svg {
+  width: 22px;
+  height: 22px;
+  fill: #333;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -11px 0 0 -11px;
+}
+.content .bookBtns button.complete svg {
+  border-radius: 50px;
+  border: 1px solid green;
+  transition: .5s ease;
+}
+/* Readed books complete button and hover efect */
+.content .read .bookBtns button.complete svg,
+.content .notRead .bookBtns button.complete:hover svg {
+  background-color: green;
+}
+/* Readed books complete button and hover efect */
+.content .read .bookBtns button.complete svg .fill,
+.content .notRead .bookBtns button.complete:hover svg .fill {
+  fill: #fff;
+}
+/* Not readed books complete button */
+.content .notRead .bookBtns button.complete svg {
+  background-color: #fff;
+}
+.content .notRead .bookBtns button.complete svg .fill {
+  fill: green;
+}
+
+.content .bookBtns button svg .fill {
+  -webkit-transition: fill .5s ease;
+  -moz-transition: fill .5s ease;
+  -ms-transition: fill .5s ease;
+  -o-transition: fill .5s ease;
+  transition: fill .5s ease;
+}
+.content .bookBtns button.remove svg .fill {
+  fill: #333;
+}
+.content .bookBtns button.remove:hover svg .fill {
+  fill: red;
+}
+.content .bookBtns button.complete svg .fill {
+  fill: green;
+}
+.content .bookBtns button.complete:hover svg .fill {
+  fill: purple;
+}
+
 .read,
 .notRead {
-  width: 320px;
+  width: 520px;
   height: 100%;
   min-height: 200px;
   display: block;
