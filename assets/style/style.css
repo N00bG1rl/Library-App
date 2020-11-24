@@ -191,6 +191,7 @@ body, input, button {
   box-shadow: none;
   outline: none;
   appearance: none;
+  cursor: pointer;
   box-sizing: border-box;
   -webkit-transition: top .2s ease-in-out, font-size .2s ease-in-out;
   transition: top .2s ease-in-out, font-size .2s ease-in-out;
@@ -248,10 +249,10 @@ input[type="text"]:focus {
   color: #333;
   padding: 20px;
 }
-.content ul {
+/* .content ul {
   float: left;
   padding: 20px;
-}
+} */
 .content ul li {
   width: 100%;
   min-height: 70px;
@@ -264,6 +265,42 @@ input[type="text"]:focus {
   padding: 10px;
   position: relative;
   box-sizing: border-box;
+}
+.read,
+.notRead {
+  width: 520px;
+  height: 100%;
+  min-height: 200px;
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
+  overflow: auto;
+}
+.notRead {
+  border-bottom: 1px solid #666;
+}
+
+.book {
+  padding: 10px;
+  box-shadow: 0px 1px 3px rgba(44,62,80, .4);
+  border-radius: 5px;
+  font-size: 0; /* For whitespace */
+}
+.book h3 {
+  font-size: 17px;
+  line-height: 20px;
+}
+.book h5 {
+  font-size: 13px;
+  padding: 5px 0 5px 0;
+}
+.book span {
+  font-size: 13px;
+  color: #666;
+  padding: 5px 0 5px 0;
+}
+.book span strong {
+  font-weight: 600;
 }
 .content .bookBtns {
   width: 100px;
@@ -301,7 +338,7 @@ input[type="text"]:focus {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -11px 0 0 -11px;
+  margin: -17px 0 0 -17px;
 }
 .content .bookBtns button.complete svg {
   border-radius: 50px;
@@ -309,22 +346,35 @@ input[type="text"]:focus {
   transition: .5s ease;
   padding: 5px;
 }
-/* Readed books complete button and hover efect */
+/* Readed books complete button and hover effect */
 .content .read .bookBtns button.complete svg,
 .content .notRead .bookBtns button.complete:hover svg {
   background-color: green;
 }
-/* Readed books complete button and hover efect */
+/* Readed books complete button and hover effect */
 .content .read .bookBtns button.complete svg .fill,
 .content .notRead .bookBtns button.complete:hover svg .fill {
   fill: #fff;
 }
 /* Not readed books complete button */
-.content .notRead .bookBtns button.complete svg {
+.content .notRead .bookBtns button.complete svg,
+.content .read .bookBtns button.complete:hover svg {
   background-color: #fff;
+  width: 33px;
+  height: 33px;
+}
+.content .read .bookBtns button.complete svg {
+  width: 33px;
+  height: 33px;
 }
 .content .notRead .bookBtns button.complete svg .fill {
   fill: green;
+}
+.content .read .bookBtns button.complete:hover svg .fill {
+  fill: green;
+}
+.content .bookBtns button.remove:hover svg .fill {
+  fill: red;
 }
 .content .bookBtns button svg .fill {
   -webkit-transition: fill .5s ease;
@@ -333,54 +383,14 @@ input[type="text"]:focus {
   -o-transition: fill .5s ease;
   transition: fill .5s ease;
 }
-.content .bookBtns button.remove svg .fill {
+
+/* .content .bookBtns button.remove svg .fill {
   fill: #333;
-}
-.content .bookBtns button.remove:hover svg .fill {
-  fill: red;
-}
-.content .bookBtns button.complete svg .fill {
+} */
+
+/* .content .bookBtns button.complete svg .fill {
   fill: green;
-}
-.content .bookBtns button.complete:hover svg .fill {
-  fill: purple;
-}
-
-.read,
-.notRead {
-  width: 520px;
-  height: 100%;
-  min-height: 200px;
-  display: block;
-  margin: 0 auto;
-  font-size: 20px;
-}
-.notRead {
-  border-bottom: 1px solid #666;
-}
-
-.book {
-  padding: 10px;
-  box-shadow: 0px 1px 3px rgba(44,62,80, .4);
-  border-radius: 5px;
-  font-size: 0; /* For whitespace */
-}
-.book h3 {
-  font-size: 17px;
-  line-height: 20px;
-}
-.book h5 {
-  font-size: 13px;
-  padding: 5px 0 5px 0;
-}
-.book span {
-  font-size: 13px;
-  color: #666;
-  padding: 5px 0 5px 0;
-}
-.book span strong {
-  font-weight: 600;
-}
+} */
 
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -443,7 +453,7 @@ input[type="text"]:focus {
   .overlay button {
     font-size: 15px;
   }
-  .read, .notRead {
+/*   .read, .notRead {
     display: inline-block;
-  }
+  } */
 }
