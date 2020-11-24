@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+* {
+  box-sizing: border-box;
+}
+
 body,
 html {
   min-width: 400px;
@@ -82,6 +86,7 @@ body, input, button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all .5s ease-in-out;
 }
 .header .openBtn svg path {
   fill: #fff;
@@ -140,6 +145,7 @@ body, input, button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all .5s ease-in-out;
 }
 .overlay .closeBtnWrapper .closeBtn svg path {
   fill: #fff;
@@ -216,14 +222,15 @@ input[type="text"]:focus {
   height: 40px;
   font-size: 13px;
   text-transform: uppercase;
-  border: 1px solid green;
+  border: 2px solid green;
   border-radius: 5px;
   transition: ease-in-out .5s;
   cursor: pointer;
 }
 .inputWrapper button:hover {
-  border: 1px solid green;
+  border: 2px solid green;
   background-color: green;
+  color: #fff;
 }
 
 
@@ -264,9 +271,10 @@ input[type="text"]:focus {
   border-radius: 5px;
   box-shadow: 0px 1px 2px rgba(44,62,80, .10);
  /*  padding: 0 100px 0 0; */
-  padding: 24px 0 24px 0;
-  margin: 0 0 10px 0;
+  padding: 24px;/*  24px 0 24px 0 */
+  /* margin: 0 0 10px 0; */
   position: relative;
+  box-sizing: border-box;
 }
 .content ul li:last-of-type {
   margin: 0;
@@ -275,8 +283,9 @@ input[type="text"]:focus {
   width: 100px;
   height: 50px;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 50%;
+  right: 25px;
+  transform: translate(0, -50%);
 }
 .content .bookBtns button {
   width: 50px;
@@ -293,15 +302,15 @@ input[type="text"]:focus {
 .content .bookBtns button:last-of-type::before {
   content: " ";
   width: 1px;
-  height: 50px;
+  height: 40px;
   position: absolute;
   top: 5px;
   left: 0;
   background-color: darkgray;
 }
 .content .bookBtns button svg {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   fill: #333;
   position: absolute;
   top: 50%;
@@ -310,8 +319,9 @@ input[type="text"]:focus {
 }
 .content .bookBtns button.complete svg {
   border-radius: 50px;
-  border: 1px solid green;
+  border: 2px solid green;
   transition: .5s ease;
+  padding: 5px;
 }
 /* Readed books complete button and hover efect */
 .content .read .bookBtns button.complete svg,
@@ -415,6 +425,10 @@ input[type="text"]:focus {
     width: 25px;
     height: 25px;
   }
+  .header .openBtn:hover svg {
+    width: 30px;
+    height: 30px;
+  }
   .overlay .closeBtnWrapper {
     height: 60px;
     padding: 0 10px;
@@ -426,6 +440,10 @@ input[type="text"]:focus {
   .overlay .closeBtnWrapper .closeBtn svg {
     width: 25px;
     height: 25px;
+  }
+  .overlay .closeBtnWrapper .closeBtn:hover svg {
+    width: 30px;
+    height: 30px;
   }
   .inputWrapper {
     width: 600px;
