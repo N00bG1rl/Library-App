@@ -28,6 +28,24 @@ $('input').on('focusout', function() {
   }
 });
 
+function removeItem() {
+  let item = this.parentNode.parentNode;
+  let parent = item.parentNode;
+
+  parent.removeChild(item);
+}
+
+function completeItem() {
+  let item = this.parentNode.parentNode;
+  let parent = item.parentNode;
+  let id = parent.id;
+
+  let target = (id === 'unreadList') ? document.getElementById('readedList'):document.getElementById('unreadList');
+
+  parent.removeChild(item);
+  target.insertBefore(item, target.childNodes[0]);
+}
+
 /* Add new book to library list */
 function addItem() {
  /*  Complete and remove icons in SVG format */
@@ -41,7 +59,7 @@ function addItem() {
   let pages = document.getElementById('pages').value;
 
   /* If there is any text inside the input field, Add items to library list */
-  if (title && author && pages) {
+  if (title) {  /* && author && pages */
     let item = document.createElement('li');
    
     let content = document.createElement('div');
@@ -63,9 +81,15 @@ function addItem() {
     complete.classList.add('complete');
     complete.innerHTML = completeSVG;
 
+    /* Add click event to add the item readed list */
+    complete.addEventListener('click', completeItem);
+
     let remove = document.createElement('button');
     remove.classList.add('remove');
     remove.innerHTML = removeSVG;
+
+    /* Add click event to remove the item */
+    remove.addEventListener('click', removeItem);
 
     content.appendChild(h3);
     content.appendChild(span);
@@ -81,7 +105,7 @@ function addItem() {
     list.insertBefore(item, list.childNodes[0]);
     /* Close overlay after submit/add button is clicked */
     overlay.style.display = 'none';
-
+    /* Resets input field */
     document.getElementById('title').value = "";
     document.getElementById('author').value = "";
     document.getElementById('pages').value = "";
