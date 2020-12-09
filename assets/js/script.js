@@ -66,7 +66,7 @@ document.getElementById('add').addEventListener('click', function() {
 });
 
 /* Mark as readed book */
-function completeItem(title) {
+function completeItem() {
   let item = this.parentNode.parentNode;
   let parent = item.parentNode;
   let id = parent.id;
