@@ -92,16 +92,9 @@ function dataObjectUpdated() {
 function removeItem() {
   let item = this.parentNode.parentNode;
   let parent = item.parentNode;
-  /* let id = parent.id; */
   let value = data[item.dataset.id];
 
   data.splice(data.indexOf(value), 1);
-  
-/*   if (id === 'unreadList') {
-    data.splice(data.indexOf(value), 1);
-  } else {
-    data.splice(data.indexOf(value), 1);
-  } */
   
   parent.removeChild(item);
 
@@ -114,17 +107,6 @@ function completeItem() {
   let item = this.parentNode.parentNode;
   let parent = item.parentNode;
   let id = parent.id;
-  /* let value = data.unread[item.dataset.id]; */
-
-  /* Toggle between readed/unread and push to data array */
-/*   if (id === 'unreadList') {
-    data.readed.push(value);
-    data.unread.splice(data.unread.indexOf(value), 1);
-    
-  } else {
-    data.readed.splice(data.readed.indexOf(value), 0);
-    data.unread.push(value);
-  } */
 
   /* Check if the item should be added to the readed list or to re-added to unread list */
   let target = (id === 'unreadList') ? document.getElementById('readedList'):document.getElementById('unreadList');
@@ -142,12 +124,8 @@ function addItemtoDOM(title, author, pages) {
   /* Get unread ul list from html */
   let list = document.getElementById('unreadList');
 
-  /* let list = (readed) ? document.getElementById('readedList'):document.getElementById('unreadList'); */
-
   let item = document.createElement('li');
-
   item.dataset.id = data.length;
-  /* item.dataset.id = data.unread.length + data.readed.length; */
    
   let content = document.createElement('div');
   content.classList.add('book');
