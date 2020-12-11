@@ -48,12 +48,15 @@ let removeSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" wid
 /* Get local storage items */
 renderBookList();
 
+/* When 'add' button is clicked and there are values, add content to HTML and data array */
 document.getElementById('add').addEventListener('click', function() {
+  /* Get input values */
   let title = document.getElementById('title').value;
   let author = document.getElementById('author').value;
   let pages = document.getElementById('pages').value;
 
   if (title && author && pages) {
+    /* Run function to display items */
     addItemtoDOM(title, author, pages);
 
     /* Resets input field */
@@ -73,6 +76,7 @@ document.getElementById('add').addEventListener('click', function() {
   }
 });
 
+/* Loop through local storage if there is items and display them */
 function renderBookList() {
   if (!data.length) return;
 
