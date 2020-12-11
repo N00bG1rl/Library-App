@@ -34,8 +34,19 @@ closeBtn.addEventListener('click', closeOverlay);
 /* If local storage has items than diplay them. Otherwise display empty array */
 let data = (localStorage.getItem('bookList')) ? JSON.parse(localStorage.getItem('bookList')):[];
 
+function generateId() {
+  let id = data.length
+  let findBook = data.find(book => book.id === id)
+  while (findBook) {
+    id++
+    findBook = data.find(book => book.id === id)
+  }
+  return id
+}
+
 /* Created Book constructor */
 function Book(title, author, pages) {
+  this.id = generateId();
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -55,9 +66,12 @@ document.getElementById('add').addEventListener('click', function() {
   let author = document.getElementById('author').value;
   let pages = document.getElementById('pages').value;
 
+  
   if (title && author && pages) {
-    /* Run function to display items */
-    addItemtoDOM(title, author, pages);
+    let newBook = new Book(title, author, pages);
+    /* Store content into data array */
+    data.push(newBook);
+    addItemtoDOM(newBook);
 
     /* Resets input field */
     document.getElementById('title').value = "";
@@ -66,10 +80,6 @@ document.getElementById('add').addEventListener('click', function() {
 
     /* Close overlay after submit/add button is clicked */
     closeOverlay();
-
-    let newBook = new Book(title, author, pages);
-    /* Store content into data array */
-    data.push(newBook);
 
     /* Update local storage */
     dataObjectUpdated();
@@ -80,7 +90,11 @@ document.getElementById('add').addEventListener('click', function() {
 function renderBookList() {
   if (!data.length) return;
 
-  data.forEach((book)=>addItemtoDOM(book.title,book.author,book.pages));
+//   data.forEach((book)=>addItemtoDOM(book.title,book.author,book.pages));
+  for (let i = 0; i < data.length; i++) {
+    let book = data[i]
+    addItemtoDOM(book);
+  }
 }
 
 /* Update local storage */
@@ -92,7 +106,7 @@ function dataObjectUpdated() {
 function removeItem() {
   let item = this.parentNode.parentNode;
   let parent = item.parentNode;
-  let value = data[item.dataset.id];
+  let value = data.find(book => book.id == item.dataset.id);
 
   data.splice(data.indexOf(value), 1);
   
@@ -120,24 +134,25 @@ function completeItem() {
   dataObjectUpdated();
 };
 
-function addItemtoDOM(title, author, pages) {
+function addItemtoDOM(book) {
   /* Get unread ul list from html */
   let list = document.getElementById('unreadList');
 
   let item = document.createElement('li');
-  item.dataset.id = data.length;
+  
+  item.dataset.id = book.id;
    
   let content = document.createElement('div');
   content.classList.add('book');
 
   let h3 = document.createElement('h3');
-  h3.innerText = title;
+  h3.innerText = book.title;
 
   let span = document.createElement('span');
-  span.innerHTML = '<strong>By: </strong>' + author;
+  span.innerHTML = '<strong>By: </strong>' + book.author;
 
   let h5 = document.createElement('h5');
-  h5.innerHTML = pages + ' pages';
+  h5.innerHTML = book.pages + ' pages';
 
   let buttons = document.createElement('div');
   buttons.classList.add('bookBtns');
