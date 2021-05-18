@@ -1,16 +1,13 @@
 @charset "UTF-8";
-
 * {
   box-sizing: border-box;
 }
-
 body,
 html {
   min-width: 400px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   letter-spacing: .6px;
-  /* background-color: ; */
   margin: 0;
   padding: 0;
 }
@@ -28,7 +25,6 @@ body, input, button {
   width: 100%;
   height: 50px;
   margin: 0 auto;
-  /* background-color: ; */
   box-shadow: 1px 1px 6px #666666;
   border-bottom: 1px solid #666;
   display: flex;
@@ -250,10 +246,6 @@ input[type="text"]:focus {
   color: #333;
   padding: 20px;
 }
-/* .content ul {
-  float: left;
-  padding: 20px;
-} */
 .content ul li {
   width: 100%;
   min-height: 100px;
@@ -262,7 +254,6 @@ input[type="text"]:focus {
   font-weight: 500;
   color: #444;
   line-height: 22px;
-  /* background-color: ; */
   padding: 10px;
   position: relative;
   box-sizing: border-box;
@@ -413,8 +404,6 @@ input[type="text"]:focus {
   transition: fill .5s ease;
 }
 
-
-
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .header {
@@ -475,7 +464,4 @@ input[type="text"]:focus {
   .overlay button {
     font-size: 15px;
   }
-/*   .read, .notRead {
-    display: inline-block;
-  } */
 }
