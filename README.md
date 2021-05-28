@@ -9,6 +9,5 @@
 Jan 22, 2020
 
 ## [View on browser](https://n00bg1rl.github.io/Library-App/)
-[Demo](https://n00bg1rl.github.io/Library-App/)
 
 ![github](./assets/images/github.png)
