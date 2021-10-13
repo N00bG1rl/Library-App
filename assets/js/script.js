@@ -47,9 +47,9 @@ let deleteSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" wid
 /* When 'add' button is clicked and there are values, add content to HTML and data array */
 document.getElementById('add').addEventListener('click', function() {
   /* Get input values */
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const pages = document.getElementById('pages').value;
+  const title = document.getElementById('title').value
+  const author = document.getElementById('author').value
+  const pages = document.getElementById('pages').value
 
   if (title && author && pages) {
     const newBook = new Book(title, author, pages)
@@ -76,7 +76,7 @@ function removeItem() {
 function completeItem() {
   const item = this.parentNode.parentNode
   const parent = item.parentNode
-  const id = parent.id;
+  const id = parent.id
 
   /* Check if the item should be added to the readed list or to re-added to unread list */
   const target = (id === 'unreadList') ? document.getElementById('readedList'):document.getElementById('unreadList')
@@ -87,51 +87,51 @@ function completeItem() {
   target.insertBefore(item, target.childNodes[0])
 }
 
-function addItemtoDOM(book, readedBooks) {
+function addItemtoDOM(book) {
   /* Get unread ul list from html */
-  const list = document.getElementById('unreadList');
+  const list = document.getElementById('unreadList')
 
-  const item = document.createElement('li');
+  const item = document.createElement('li')
    
-  const content = document.createElement('div');
-  content.classList.add('book');
+  const content = document.createElement('div')
+  content.classList.add('book')
 
-  const h3 = document.createElement('h3');
-  h3.innerText = book.title;
+  const h3 = document.createElement('h3')
+  h3.innerText = book.title
 
-  const span = document.createElement('span');
-  span.innerHTML = '<strong>By: </strong>' + book.author;
+  const span = document.createElement('span')
+  span.innerHTML = '<strong>By: </strong>' + book.author
 
-  const h5 = document.createElement('h5');
-  h5.innerHTML = book.pages + ' pages';
+  const h5 = document.createElement('h5')
+  h5.innerHTML = book.pages + ' pages'
 
-  const buttons = document.createElement('div');
-  buttons.classList.add('bookBtns');
+  const buttons = document.createElement('div')
+  buttons.classList.add('bookBtns')
 
-  const complete = document.createElement('button');
-  complete.classList.add('complete');
-  complete.innerHTML = doneSVG;
+  const complete = document.createElement('button')
+  complete.classList.add('complete')
+  complete.innerHTML = doneSVG
 
   /* Add click event to add the item readed list */
-  complete.addEventListener('click', completeItem);
+  complete.addEventListener('click', completeItem)
 
-  const remove = document.createElement('button');
-  remove.classList.add('remove');
-  remove.innerHTML = deleteSVG;
+  const remove = document.createElement('button')
+  remove.classList.add('remove')
+  remove.innerHTML = deleteSVG
 
   /* Add click event to remove the item */
-  remove.addEventListener('click', removeItem);
+  remove.addEventListener('click', removeItem)
 
-  content.appendChild(h3);
-  content.appendChild(span);
-  content.appendChild(h5);
+  content.appendChild(h3)
+  content.appendChild(span)
+  content.appendChild(h5)
   
-  buttons.appendChild(complete);
-  buttons.appendChild(remove);
+  buttons.appendChild(complete)
+  buttons.appendChild(remove)
   
-  item.appendChild(content);
-  item.appendChild(buttons);
+  item.appendChild(content)
+  item.appendChild(buttons)
 
   /* Insert new book before first child nodes */
-  list.insertBefore(item, list.childNodes[0]);
+  list.insertBefore(item, list.childNodes[0])
 }
