@@ -1,13 +1,23 @@
-# Book library app
+# Book Library App
 
-## Project is created with
+I created this to practice JavaScript.
+
+This was one of the projects from [The Odin Project](https://www.theodinproject.com/home) - Full Stack Curriculum.
+
+# Created at
+
+July 18, 2017
+
+# Project is created with
+
 * JavaScript
 * HTML
 * CSS
 
-## Created at
-Jan 22, 2020
+# View on browser
 
-## [View on browser](https://n00bg1rl.github.io/Library-App/)
+## [https://n00bg1rl.github.io/Library-App/](https://n00bg1rl.github.io/Library-App/)
+
+# View as image
 
 ![github](./assets/images/github.png)
